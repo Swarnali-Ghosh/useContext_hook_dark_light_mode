@@ -1,18 +1,21 @@
-import React from "react";
-import {Link} from "react-router-dom";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import '../styles.css'
-import {useTheme} from "../theme-context";
+// import { useTheme } from "../theme-context";
+import { ThemeContext } from "../theme-context";
 
 const Navbar = () => {
-  const {theme, toggleTheme} = useTheme();
+  // const {theme, toggleTheme} = useTheme();
+
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   const toggleMode = () => {
     toggleTheme();
   };
 
   return (
-    <nav 
-    className={`navbar ${theme}`}
+    <nav
+      className={`navbar ${theme}`}
     >
       <div>
         <Link to="/">Home</Link>
